@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdSense AI - Predictive Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Premium Intro Launch Sequence -->
+    <div id="intro-screen" class="intro-screen">
+        <div class="intro-content">
+            <div class="intro-logo">
+                <svg viewBox="0 0 100 100" class="logo-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)" stroke-width="8" stroke-dasharray="280" class="circle-anim"></circle>
+                    <path d="M50 25 L75 75 L25 75 Z" fill="url(#gradient)" class="triangle-anim"></path>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6" />
+                            <stop offset="100%" stop-color="#8b5cf6" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1 class="intro-title">CrowdSense <span class="gradient-text">AI</span></h1>
+            <p class="intro-tagline">Predictive Crowd Intelligence for Live Events</p>
+            
+            <div class="intro-onboarding" id="onboarding-step">
+                <p>Welcome. Please authenticate to access live feeds.</p>
+                <div class="input-group">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <input type="text" id="intro-name-input" placeholder="Enter your Name" autocomplete="off" aria-label="Enter your Name">
+                </div>
+                <button id="enter-dashboard-btn" class="glow-btn">Initialize System <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="intro-bg-elements">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
+    </div>
+
+    <!-- Main Application UI -->
+    <div id="app-wrapper" class="app-wrapper hidden">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="brand">
+                <div class="brand-logo-small">
+                    <svg viewBox="0 0 100 100" width="24" height="24">
+                        <path d="M50 15 L85 85 L15 85 Z" fill="url(#gradient-small)"></path>
+                        <defs>
+                            <linearGradient id="gradient-small" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3b82f6" />
+                                <stop offset="100%" stop-color="#8b5cf6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="brand-text">CrowdSense <span>AI</span></div>
+            </div>
+
+            <div class="ai-search-container 3d-hover">
+                <i class="fa-solid fa-sparkles ai-icon"></i>
+                <input type="text" id="ai-search-input" placeholder="Ask AI: 'Where am I?' or 'Nearest free food stall?'">
+                <button id="ai-search-btn">Analyze</button>
+            </div>
+
+            <div class="user-actions">
+                <div class="theme-toggle 3d-hover" id="theme-btn" title="Toggle Light/Dark Theme" role="button" tabindex="0" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+                
+                <div class="notification-bell 3d-hover" id="notif-bell" role="button" tabindex="0" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge" id="notif-badge">3</span>
+                    
+                    <!-- Notifications Dropdown -->
+                    <div class="notif-dropdown" id="notif-dropdown">
+                        <div class="dropdown-header">
+                            <h3><i class="fa-solid fa-bolt"></i> Live Alerts System</h3>
+                        </div>
+                        <ul class="alerts-list" id="alerts-list">
+                            <!-- Alerts injected here -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-btn 3d-hover">
+                    <div class="avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <span id="display-name">Loading...</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-container">
+            
+            <!-- Left Panel: Live 3D Map -->
+            <div class="map-section 3d-card">
+                <div class="section-header">
+                <h2><i class="fa-solid fa-location-crosshairs"></i> Narendra Modi Stadium Live Map</h2>
+                <div class="map-legend">
+                    <span class="legend-item"><span class="dot safe"></span> Flowing</span>
+                    <span class="legend-item"><span class="dot warning"></span> Busy</span>
+                    <span class="legend-item"><span class="dot critical"></span> Crowded</span>
+                </div>
+                <div class="map-actions">
+                        <button id="locate-me-btn" class="action-btn primary"><i class="fa-solid fa-location-arrow"></i> Auto-Route</button>
+                        <button id="toggle-3d-btn" class="action-btn"><i class="fa-solid fa-cube"></i> Toggle 3D</button>
+                    </div>
+                </div>
+                <div class="map-wrapper" id="google-map">
+                    <div class="loading-map"><i class="fa-solid fa-spinner fa-spin"></i> Initializing Neural Map...</div>
+                    <div class="map-overlay-vignette"></div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Data & Intelligence -->
+            <div class="intelligence-panel">
+                
+                <!-- AI Chat Assistant -->
+                <div class="data-card chat-card 3d-card">
+                    <div class="card-header ai-header">
+                        <h3><i class="fa-solid fa-robot"></i> AI Coordinator</h3>
+                        <span class="status-tag">Neural Link Active</span>
+                    </div>
+                    <div class="chat-history" id="chat-history">
+                        <div class="chat-message ai">
+                            <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="msg-bubble">System initialized. I am connected to the stadium's live feeds. I can locate you and guide you to the nearest least-crowded amenities to balance traffic.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Gates & Load Balancing -->
+                <div class="data-card 3d-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-network-wired"></i> Gate Telemetry & Load</h3>
+                        <span class="status-tag active" id="load-balancer-status">Auto-Balancing ON</span>
+                    </div>
+                    <div class="gate-list" id="gate-list">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Food & Amenities Stalls -->
+                <div class="data-card 3d-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-burger"></i> Amenities Heatmap</h3>
+                        <span class="status-tag">Live Status</span>
+                    </div>
+                    <div class="stall-grid" id="stall-grid">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profile-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>User Profile & Details</h2>
+                <button class="close-btn" id="close-profile" aria-label="Close Profile"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="input-name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Current Ticket / Block</label>
+                    <input type="text" id="input-block" placeholder="e.g. Block B, Pavilion">
+                </div>
+                <div class="form-group">
+                    <label>Accessibility Needs?</label>
+                    <select id="input-access">
+                        <option value="none">None</option>
+                        <option value="wheelchair">Wheelchair Access Required</option>
+                        <option value="medical">Near Medical Tent</option>
+                    </select>
+                </div>
+                <button class="glow-btn" id="save-profile" style="width:100%; margin-top:1.5rem; justify-content:center;">Save & Update Routing</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="emergency_mode.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+</body>
+</html>
